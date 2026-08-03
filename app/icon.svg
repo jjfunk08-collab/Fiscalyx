@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" fill="#050505"/>
+  <!-- candlestick mark -->
+  <line x1="13" y1="4" x2="13" y2="28" stroke="#FF9500" stroke-width="2"/>
+  <rect x="9" y="10" width="8" height="12" fill="#FF9500"/>
+  <!-- caret / tick accent -->
+  <path d="M20 20 L24 14 L28 20" fill="none" stroke="#4FD1E8" stroke-width="2" stroke-linecap="square"/>
+</svg>

@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fiscalyx design system — CSS custom properties (source of truth). */
+:root {
+  color-scheme: dark;
+  --bg-void: #050505;
+  --bg-panel: #0F1012;
+  --line: #1F2226;
+  --text-primary: #E8E6E1;
+  --text-dim: #6B7078;
+  --accent-amber: #FF9500;
+  --pos: #3DDC84;
+  --neg: #FF5C5C;
+  --accent-cyan: #4FD1E8;
+}
+
+html,
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular numbers everywhere so columns stay aligned. */
+* {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thin terminal scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2E33;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-amber);
+}
+
+/* Panel chrome — sharp edges, no rounded cards */
+@layer components {
+  .panel {
+    @apply border border-term-border bg-term-panel flex flex-col min-h-0 overflow-hidden;
+  }
+  .panel-header {
+    @apply flex items-center justify-between px-2 py-1 border-b border-term-border
+           bg-term-bg text-[11px] uppercase tracking-wider text-term-amber select-none;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  .panel-body {
+    @apply flex-1 min-h-0 overflow-auto;
+  }
+  .grid-row {
+    @apply border-b border-term-border/60;
+  }
+  .tab {
+    @apply px-2 py-0.5 text-[11px] uppercase tracking-wide cursor-pointer
+           text-term-gray hover:text-term-white transition-colors;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  .tab-active {
+    @apply text-term-bg bg-term-amber;
+  }
+  .keycap {
+    @apply inline-flex items-center justify-center px-1.5 py-0.5 text-[10px]
+           border border-term-borderlight text-term-gray rounded-sm;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  /* Condensed-sans utility for headers/nav/labels */
+  .font-cond {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 1px solid var(--accent-amber);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
